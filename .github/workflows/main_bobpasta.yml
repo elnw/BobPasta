@@ -23,14 +23,13 @@ jobs:
         with:
           dotnet-version: '8.x'
 
-      - name: Verify execution path
-        run: cd ./backend/BobPastaBackend && dir
-
       - name: Build with dotnet
         run: dotnet build --configuration Release
+        working-directory: ./backend/BobPastaBackend
 
       - name: dotnet publish
         run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
+        working-directory: ./backend/BobPastaBackend
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
