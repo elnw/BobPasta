@@ -26,6 +26,9 @@ jobs:
       - name: Set on .NET solution
         run: cd ./backend/BobPastaBackend
 
+      - name: Verify execution path
+        run: dir
+
       - name: Build with dotnet
         run: dotnet build --configuration Release
 
