@@ -23,11 +23,8 @@ jobs:
         with:
           dotnet-version: '8.x'
 
-      - name: Set on .NET solution
-        run: cd ./backend/BobPastaBackend
-
       - name: Verify execution path
-        run: dir
+        run: cd ./backend/BobPastaBackend && dir
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
