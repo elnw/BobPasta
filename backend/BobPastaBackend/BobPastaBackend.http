@@ -1,0 +1,6 @@
+@BobPastaBackend_HostAddress = http://localhost:5129
+
+GET {{BobPastaBackend_HostAddress}}/bobpasta/
+Accept: application/json
+
+###
