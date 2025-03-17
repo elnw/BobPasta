@@ -50,7 +50,7 @@ app.MapPost("/bobpasta", async (BobPasto newBobPasto, BobPastaService bobpastaSe
 {
     return Results.Created("", await bobpastaService.CreateBobPastoAsync(newBobPasto));
 });
-
+app.UseDeveloperExceptionPage();
 app.Run();
 
 //1 - text 2 - file
