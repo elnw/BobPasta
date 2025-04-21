@@ -28,7 +28,7 @@ jobs:
         working-directory: ./backend/BobPastaBackend
 
       - name: dotnet publish
-        run: dotnet publish -c Release -r win-x64 --self-contained true --property:PublishDir="${{env.GITHUB_WORKSPACE}}\published_folder"
+        run: dotnet publish -c Release -r win-x86 --self-contained true --property:PublishDir="${{env.GITHUB_WORKSPACE}}\published_folder"
         working-directory: ./backend/BobPastaBackend
 
       - name: Upload artifact for deployment job
