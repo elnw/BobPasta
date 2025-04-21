@@ -1,4 +1,5 @@
 using BobPastaBackend;
+using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -36,10 +37,16 @@ builder.Services.AddSingleton<IMongoDatabase>(sp =>
 });
 
 builder.Services.AddSingleton<BobPastaService>();
+builder.Services.Configure<RouteOptions>(
+    options => options.SetParameterPolicy<RegexInlineRouteConstraint>("regex"));
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
 app.UseCors("AllowAll");
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.MapGet("/bobpasta", async (BobPastaService bobpastaService) =>
 {
